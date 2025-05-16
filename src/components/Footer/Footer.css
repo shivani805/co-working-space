@@ -1,8 +1,8 @@
 .footer-container {
-  background-color: #222e34;
+  background-color: var(--footer-background-color);
   padding: 10px;
 }
 .copyright-text {
-  color: #fff;
+  color: var(--light-mode);
   text-align: center;
 }

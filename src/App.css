@@ -1,6 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --primary-color1: #000;
+  --primary-color2: #f2b304;
+  --primary-button: #ffcf4b;
+  --secondary-color: #f9f9f9;
+  --dark-grey: #cec6c6;
+  --text-color-main: #263238;
+  --text-secondary-color: #65624c;
+  --footer-background-color: #222e34;
+  --light-mode: #dddddd;
+  --dark-yellow: #ffbb00;
+  --light-gray: #eee7e7;
+  --gray: #605f5f;
+}
+
 .app-container {
-  /* padding: 0 0px; */
-  /* max-width: 1140px; */
-  /* margin: auto; */
-  background-color: #f9f9f9;
+  background-color: var(--secondary-color);
 }

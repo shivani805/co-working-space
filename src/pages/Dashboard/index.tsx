@@ -13,6 +13,7 @@ import directionImage from "../../assets/png/direction.png";
 import googlePlayImage from "../../assets/png/googleplay.png";
 import appleStoreImage from "../../assets/png/applestore.png";
 import appImage from "../../assets/png/appImage.png";
+import { ReactComponent as SVGArrow } from "../../assets/svgs/arrow.svg";
 import { useWorkspace } from "context/workspaceContext";
 
 type WhyChooseUsItem = {
@@ -54,7 +55,12 @@ const Dashboard: React.FC = () => {
       <div className="center-container">
         {/* section 2 */}
         <div className="section2">
-          <h1 className="">Why Choose us?</h1>
+          <div className="flex-center">
+            <h1 className="">Why Choose us?</h1>
+            <div className="desktop-hidden">
+              <SVGArrow />
+            </div>
+          </div>
           <div className="flex-start">
             {whyChooseUsData.map((data) => (
               <div className="flex-nowrap">
@@ -67,9 +73,14 @@ const Dashboard: React.FC = () => {
 
         {/* section 3 */}
         <div className="section3">
-          <h1>
-            Our Spaces <span className="hidden">Overview</span>
-          </h1>
+          <div className="flex-center header-align">
+            <h1>
+              Our Spaces <span className="hidden">Overview</span>
+            </h1>
+            <div className="desktop-hidden">
+              <SVGArrow />
+            </div>
+          </div>
           {loading ? (
             <div>Loading....</div>
           ) : (
@@ -77,7 +88,7 @@ const Dashboard: React.FC = () => {
               {workspaceData?.map((data, index: number) => (
                 <div className="box-layout" key={index}>
                   <div className="flex-between">
-                    <h4 className="medium-text">{data.name}</h4>
+                    <h3 className="medium-text">{data.name}</h3>
                     <a
                       href={data.google_maps_url}
                       target="_blank"
@@ -120,7 +131,12 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="section4">
-          <h1>Download our app now</h1>
+          <div className="flex-center header-align">
+            <h1>Download our app now</h1>
+            <div className="desktop-hidden">
+              <SVGArrow />
+            </div>
+          </div>
           <div className="download-view">
             <img src={appImage} alt="phone" className="absolute-position" />
             <div className="download-text">
