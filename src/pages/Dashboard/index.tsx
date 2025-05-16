@@ -45,7 +45,7 @@ const Dashboard: React.FC = () => {
         <div className="section1-container">
           <h1 className="header-text">
             Host your meeting with world-class amenities. Starting at{" "}
-            <span className="price"> ₹199/-!/</span>
+            <span className="price"> ₹199/-!</span>
           </h1>
           <div className="">
             <SVGBanner className="svg-banner" />

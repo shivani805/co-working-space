@@ -153,12 +153,14 @@ h1 {
   font-weight: 600;
   margin-top: 5px;
   font-size: 17px;
+  color: #000;
 }
 
 .price-details .pass-per-day > sub {
   font-weight: 500;
   font-size: 12px;
   vertical-align: -0.15em;
+  color: #000;
 }
 .flex-center {
   display: flex;
@@ -315,5 +317,10 @@ h1 {
   }
   .section3 .flex-start {
     gap: 24px;
+  }
+  .flex-nowrap {
+    min-width: none;
+    padding: 15px 0px;
+    margin-left: 10px;
   }
 }
