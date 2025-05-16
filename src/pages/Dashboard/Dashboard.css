@@ -52,7 +52,7 @@
   max-width: 1100px;
   margin: 30px auto;
   flex-wrap: wrap;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .flex-nowrap {
@@ -97,7 +97,7 @@
 .box-layout {
   border: 0.5px solid #eee7e7cc;
   /* margin-right: 47px; */
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   border-radius: 8px;
   /* width: 310px; */
   /* max-width: 310px; */
@@ -178,13 +178,10 @@
   top: -10px;
 }
 
-.section4 {
-  padding-bottom: 10px;
-}
-
 .section4 h1 {
+  margin-top: 80px;
   color: #605f5f;
-  margin-bottom: 267px;
+  margin-bottom: 237px;
 }
 
 .download-view {
@@ -207,10 +204,6 @@
   width: 240px;
   justify-content: space-evenly;
 }
-
-/* .download-image img {
-  margin-right: 30px;
-} */
 .download-text {
   max-width: 500px;
   margin-left: auto;
@@ -232,7 +225,7 @@
   .download-text {
     font-size: 16px;
     max-width: 400px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   .section4 h1 {
     margin-bottom: 107px;
@@ -246,30 +239,29 @@
   .header-text {
     font-size: 34px;
   }
-  /* .box-layout {
-    max-width: 250px;
-    min-width: 250px;
-  } */
-  /* .box-layout > img {
-    max-width: 250px;
-  } */
   .section1-container {
     flex-wrap: wrap;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    margin: auto;
   }
   .section2 .flex-start {
     justify-content: center;
   }
   .flex-nowrap {
     background-color: #fff;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin-left: 14px;
+    margin-bottom: 14px;
     flex-direction: column;
-    padding: 15px;
+    padding: 15px 6px;
     min-width: 155px;
     justify-content: center;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px 0px #0000000f;
+  }
+  .section2 .flex-nowrap > div:nth-child(2) {
+    font-size: 14px;
   }
   .absolute-position {
     position: relative;
@@ -282,7 +274,8 @@
     margin: auto;
   }
   .section4 h1 {
-    margin-bottom: 47px;
+    margin-top: 44px;
+    margin-bottom: 27px;
   }
   .section2 span {
     font-size: 16px;
@@ -301,12 +294,15 @@
     font-size: 24px;
   }
   .header-text {
-    font-size: 28px;
+    font-size: 20px;
   }
   .download-text > p {
     display: none;
   }
   .box-layout {
     min-width: 200px;
+  }
+  .section3 .flex-start {
+    gap: 24px;
   }
 }

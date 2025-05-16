@@ -1,4 +1,4 @@
-import React, { JSX } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import "./Dashboard.css";
 import { ReactComponent as SVGBanner } from "../../assets/svgs/coworkingvideo1.svg";
 import { ReactComponent as SVGStar } from "../../assets/svgs/star.svg";
@@ -13,45 +13,46 @@ import directionImage from "../../assets/png/direction.png";
 import googlePlayImage from "../../assets/png/googleplay.png";
 import appleStoreImage from "../../assets/png/applestore.png";
 import appImage from "../../assets/png/appImage.png";
-import workspaceData from "data.json";
+import { getWorkspaceData } from "config/services";
+
+interface Workspace {
+  id?: string;
+  name: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  google_maps_url?: string | undefined;
+  city: string;
+  state: string;
+  country: string;
+  postal_code: string;
+  description: string | null;
+  rules: string | null;
+  amenities: string[] | null;
+  images: string[];
+  working_hours_start: string;
+  working_hours_end: string;
+  contact_person_name?: string | undefined;
+  facilities: string | null;
+  is_active: boolean;
+  is_day_pass_enabled: boolean;
+  day_pass_price: number;
+  day_pass_discounts_percentage: {
+    [key: number]: {
+      value: number;
+      message: string;
+    };
+  };
+  manager_id?: string | null;
+}
+
+type WhyChooseUsItem = {
+  text: string;
+  icon: JSX.Element;
+};
 
 const Dashboard: React.FC = () => {
-  interface Workspace {
-    id?: string;
-    name: string;
-    address: string;
-    latitude: number;
-    longitude: number;
-    google_maps_url?: string | undefined;
-    city: string;
-    state: string;
-    country: string;
-    postal_code: string;
-    description: string | null;
-    rules: string | null;
-    amenities: string[] | null;
-    images: string[];
-    working_hours_start: string;
-    working_hours_end: string;
-    contact_person_name?: string | undefined;
-    facilities: string | null;
-    is_active: boolean;
-    is_day_pass_enabled: boolean;
-    day_pass_price: number;
-    day_pass_discounts_percentage: {
-      [key: number]: {
-        value: number;
-        message: string;
-      };
-    };
-    manager_id?: string | null;
-  }
-
-  type WhyChooseUsItem = {
-    text: string;
-    icon: JSX.Element;
-  };
-
+  const [workspaceData, setWorkspaceData] = useState<Workspace[]>([]);
   const whyChooseUsData: WhyChooseUsItem[] = [
     {
       text: "Community Events",
@@ -65,6 +66,15 @@ const Dashboard: React.FC = () => {
     { text: "Quick Booking", icon: <SVGQuick /> },
     { text: "Sports Area", icon: <SVGSport /> },
   ];
+
+  const workSpaceData = async () => {
+    const response = await getWorkspaceData();
+    setWorkspaceData(response);
+  };
+
+  useEffect(() => {
+    workSpaceData();
+  }, []);
 
   return (
     <div className="dashboard-container">
@@ -97,14 +107,18 @@ const Dashboard: React.FC = () => {
         {/* section 3 */}
         <div className="section3">
           <h1>
-            Our Space <span className="hidden">Overview</span>
+            Our Spaces <span className="hidden">Overview</span>
           </h1>
           <div className="flex-start">
             {workspaceData?.map((data: Workspace, index: number) => (
               <div className="box-layout" key={index}>
                 <div className="flex-between">
                   <h4 className="medium-text">{data.name}</h4>
-                  <a href={data.google_maps_url} target="_blank">
+                  <a
+                    href={data.google_maps_url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img
                       src={directionImage}
                       alt="workspace"
@@ -112,7 +126,7 @@ const Dashboard: React.FC = () => {
                     />
                   </a>
                 </div>
-                <img src={data.images[0]} alt="workspace" />
+                <img src={`/${data.images[0]}`} alt="workspace" />
                 {data?.is_day_pass_enabled && (
                   <div className="price-details">
                     <button className="day-pass">
@@ -124,7 +138,8 @@ const Dashboard: React.FC = () => {
                     </button>
                     <button className="bulk-pass">
                       <div className="absolute">
-                        {data.day_pass_discounts_percentage[10].value}% discount
+                        {data.day_pass_discounts_percentage[10]?.value}%
+                        discount
                       </div>
                       <span className="pass">Bulk Pass</span>
                       <div className="pass-per-day">
