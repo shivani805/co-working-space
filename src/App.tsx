@@ -5,9 +5,11 @@ import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
-    <div className="app-container">
+    <div>
       <Navbar />
-      <Dashboard />
+      <div className="app-container">
+        <Dashboard />
+      </div>
       <Footer />
     </div>
   );

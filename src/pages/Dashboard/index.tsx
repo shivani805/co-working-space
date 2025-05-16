@@ -1,93 +1,160 @@
-import React from "react";
+import React, { JSX } from "react";
 import "./Dashboard.css";
 import { ReactComponent as SVGBanner } from "../../assets/svgs/coworkingvideo1.svg";
 import { ReactComponent as SVGStar } from "../../assets/svgs/star.svg";
-import workspaceImage from "../../assets/png/workspace.png";
+import { ReactComponent as SVGGYM } from "../../assets/svgs/gym.svg";
+import { ReactComponent as SVGRupee } from "../../assets/svgs/rupee.svg";
+import { ReactComponent as SVGQuick } from "../../assets/svgs/quick.svg";
+import { ReactComponent as SVGLounge } from "../../assets/svgs/lounge.svg";
+import { ReactComponent as SVGSport } from "../../assets/svgs/sport.svg";
+import { ReactComponent as SVGTea } from "../../assets/svgs/tea.svg";
+import { ReactComponent as SVGWifi } from "../../assets/svgs/wifi.svg";
 import directionImage from "../../assets/png/direction.png";
+import googlePlayImage from "../../assets/png/googleplay.png";
+import appleStoreImage from "../../assets/png/applestore.png";
+import appImage from "../../assets/png/appImage.png";
+import workspaceData from "data.json";
 
 const Dashboard: React.FC = () => {
+  interface Workspace {
+    id?: string;
+    name: string;
+    address: string;
+    latitude: number;
+    longitude: number;
+    google_maps_url?: string | undefined;
+    city: string;
+    state: string;
+    country: string;
+    postal_code: string;
+    description: string | null;
+    rules: string | null;
+    amenities: string[] | null;
+    images: string[];
+    working_hours_start: string;
+    working_hours_end: string;
+    contact_person_name?: string | undefined;
+    facilities: string | null;
+    is_active: boolean;
+    is_day_pass_enabled: boolean;
+    day_pass_price: number;
+    day_pass_discounts_percentage: {
+      [key: number]: {
+        value: number;
+        message: string;
+      };
+    };
+    manager_id?: string | null;
+  }
+
+  type WhyChooseUsItem = {
+    text: string;
+    icon: JSX.Element;
+  };
+
+  const whyChooseUsData: WhyChooseUsItem[] = [
+    {
+      text: "Community Events",
+      icon: <SVGStar />,
+    },
+    { text: "GYM facilities", icon: <SVGGYM /> },
+    { text: "High-Speed wifi", icon: <SVGWifi /> },
+    { text: "Cafe & Tea Bar", icon: <SVGTea /> },
+    { text: "Affordable", icon: <SVGRupee /> },
+    { text: "Comfort Lounges", icon: <SVGLounge /> },
+    { text: "Quick Booking", icon: <SVGQuick /> },
+    { text: "Sports Area", icon: <SVGSport /> },
+  ];
+
   return (
-    <div>
-      <div className="section1">
-        <h1 className="header-text">
-          Host your meeting with world-class amenities. Starting at{" "}
-          <span className="price"> ₹199/-!/</span>
-        </h1>
-        <div>
-          <SVGBanner />
-        </div>
-      </div>
-
-      <div className="section2">
-        <h1 className="">Why Choose us?</h1>
-        <div className="flex">
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>Community Events</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>GYM facilities</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>High-Speed wifi</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>Cafe & Tea Bar</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>Community Events</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>GYM facilities</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>High-Speed wifi</span>
-          </div>
-          <div className="flex-nowrap">
-            <SVGStar />
-            <span>Cafe & Tea Bar</span>
+    <div className="dashboard-container">
+      {/* section 1 */}
+      <div className="section1-image-container">
+        <div className="section1-container">
+          <h1 className="header-text">
+            Host your meeting with world-class amenities. Starting at{" "}
+            <span className="price"> ₹199/-!/</span>
+          </h1>
+          <div className="">
+            <SVGBanner className="svg-banner" />
           </div>
         </div>
       </div>
-
-      <div className="section3">
-        <h1>Our Space Overview</h1>
-        <div className="flex">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map(() => (
-            <div className="box-layout">
-              <div className="flex-between">
-                <h4 style={{ maxWidth: 200, margin: "0 0 13px 0" }}>
-                  HSR Sector 6, Service Road
-                </h4>
-                <img
-                  src={directionImage}
-                  alt="workspace"
-                  style={{ width: 44, height: 43 }}
-                />
+      <div className="center-container">
+        {/* section 2 */}
+        <div className="section2">
+          <h1 className="">Why Choose us?</h1>
+          <div className="flex-start">
+            {whyChooseUsData.map((data) => (
+              <div className="flex-nowrap">
+                <div>{data.icon}</div>
+                <div style={{ textWrap: "nowrap" }}>{data.text}</div>
               </div>
-              <img src={workspaceImage} alt="workspace" />
-              <div className="price-details">
-                <div className="">
-                  <span className="pass">Day Pass</span>
-                  <div className="pass-per-day">
-                    ₹ 249<sub>/Day</sub>
-                  </div>
+            ))}
+          </div>
+        </div>
+
+        {/* section 3 */}
+        <div className="section3">
+          <h1>
+            Our Space <span className="hidden">Overview</span>
+          </h1>
+          <div className="flex-start">
+            {workspaceData?.map((data: Workspace, index: number) => (
+              <div className="box-layout" key={index}>
+                <div className="flex-between">
+                  <h4 className="medium-text">{data.name}</h4>
+                  <a href={data.google_maps_url} target="_blank">
+                    <img
+                      src={directionImage}
+                      alt="workspace"
+                      style={{ width: 44, height: 43, cursor: "pointer" }}
+                    />
+                  </a>
                 </div>
-                <div className="">
-                  <span className="pass">Bulk Pass</span>
-                  <div className="pass-per-day">
-                    ₹ 2490<sub>/10 Day</sub>
+                <img src={data.images[0]} alt="workspace" />
+                {data?.is_day_pass_enabled && (
+                  <div className="price-details">
+                    <button className="day-pass">
+                      <span className="pass">Day Pass</span>
+                      <div className="pass-per-day">
+                        ₹ {data.day_pass_price}
+                        <sub>/Day</sub>
+                      </div>
+                    </button>
+                    <button className="bulk-pass">
+                      <div className="absolute">
+                        {data.day_pass_discounts_percentage[10].value}% discount
+                      </div>
+                      <span className="pass">Bulk Pass</span>
+                      <div className="pass-per-day">
+                        ₹ {data.day_pass_price * 10}
+                        <sub>/10 Days</sub>
+                      </div>
+                    </button>
                   </div>
-                </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="section4">
+          <h1>Download our app now</h1>
+          <div className="download-view">
+            <img src={appImage} alt="phone" className="absolute-position" />
+            <div className="download-text">
+              <p>
+                Boost your productivity with the BHIVE Workspace app. Elevate
+                your workspace, collaborate efficiently, and unlock exclusive
+                perks.
+              </p>
+              <div className="download-image">
+                <img src={googlePlayImage} alt="google" />
+                <img src={appleStoreImage} alt="apple" />
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

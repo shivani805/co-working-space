@@ -1,23 +1,38 @@
+.section1-image-container {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("../../assets/png/background2.png"),
+    url("../../assets/png/background1.png");
+  background-position: top left, top right;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: contain, contain, auto;
+  padding: 0 20px;
+}
+.section1-container {
+  max-width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  flex: 1;
+}
+.section1-container h1 {
+  max-width: 700px;
+}
+
+.center-container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 20px;
+}
 .header-text {
   font-weight: 700;
-  margin-top: 50px;
   font-size: 58px;
+  padding: 20px 0;
 }
 
 .header-text span:last-child {
   color: #ffbb00;
   font-weight: 800;
-}
-
-.section1 {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid yellow;
-  margin: 30px 0;
-}
-.section1 h1 {
-  max-width: 700px;
-  /* border: 1px solid red; */
 }
 
 .section2 {
@@ -26,38 +41,53 @@
 .section2 h2 {
   margin-top: 76px;
 }
-
-.section2 .flex {
+.medium-text {
+  max-width: 200;
+  margin: 0 0 13px 0;
+  font-weight: 600;
+}
+.flex-start {
   display: flex;
-  justify-content: space-evenly;
-  /* border: 1px solid green; */
+  justify-content: flex-start; /* Center horizontally */
   max-width: 1100px;
-  margin: 38px auto;
+  margin: 30px auto;
   flex-wrap: wrap;
-  align-content: center;
+  border: 1px solid red;
 }
 
 .flex-nowrap {
   display: flex;
+  /* gap: 12px; */
   flex-wrap: nowrap;
-  align-items: flex-start;
-  /* border: 1px solid red; */
-  margin: 20px;
-  max-width: 200px;
+  align-items: center;
+  /* width: 118px; Almost 4 per row, leaving space for gaps */
   min-width: 200px;
-  flex-grow: 2;
+  max-width: 200px;
+  /* box-sizing: border-box; */
+  /* margin: 20px; */
+  /* width: 200px; */
+  /* min-width: 200px; */
+  /* flex: 1 1 10%; */
+  /* justify-content: center; */
+  border-bottom: 0.5px solid #eee7e7;
+  padding: 20px 30px;
+  overflow: visible;
+  border-right: 0.5px solid #eee7e7;
 }
 
-.section2 span {
+.section2 .flex-nowrap > div:nth-child(2) {
+  /* border: 1px solid red; */
   font-weight: 400;
   margin-left: 10px;
+  font-size: 18px;
 }
 
-.section3 .flex {
-  display: flex;
+.section3 .flex-start {
+  /* display: flex; */
   /* border: 1px solid red; */
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  gap: 44px;
 }
 
 .section3 h1 {
@@ -66,36 +96,54 @@
 
 .box-layout {
   border: 0.5px solid #eee7e7cc;
-  margin-right: 30px;
+  /* margin-right: 47px; */
   margin-bottom: 40px;
   border-radius: 8px;
-  width: 313px;
-  max-width: 313px;
+  /* width: 310px; */
+  /* max-width: 310px; */
   padding: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  flex: 1;
+  max-width: 310px;
+  min-width: 300px;
 }
-.box-layout img {
+.box-layout > img {
   width: 100%;
   object-fit: cover;
+  border-radius: 8px;
+  height: 179px;
+  min-height: 179px;
+  /* border: 1px solid red; */
+  margin-top: 10px;
+  background-color: #fff;
 }
 .box-layout .price-details {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  position: relative;
 }
 
-.price-details > div:nth-child(1) {
+.price-details .day-pass {
   padding: 3px 10px 8px 10px;
   background-color: #f9f9f9;
   border-radius: 6px;
   flex: 1;
   margin-right: 12px;
+  position: relative;
+  border: 1px solid #eee7e7;
+  max-width: 150px;
+  text-align: left;
 }
-.price-details > div:nth-child(2) {
-  padding: 3px 10px 8px 10px;
+.price-details .bulk-pass {
+  padding: 9px 10px 8px 10px;
   background-color: #ffcf4b;
   border-radius: 6px;
   flex: 1;
+  position: relative;
+  max-width: 150px;
+  border: 0;
+  text-align: left;
 }
 .flex-between {
   display: flex;
@@ -107,12 +155,158 @@
   margin-bottom: 18px;
 }
 .price-details .pass-per-day {
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 5px;
+  font-size: 17px;
 }
 
 .price-details .pass-per-day > sub {
   font-weight: 500;
   font-size: 12px;
   vertical-align: -0.15em;
+}
+
+.price-details .absolute {
+  position: absolute;
+  font-size: 10px;
+  background-color: #000;
+  padding: 3px 10px;
+  color: #fff;
+  border-radius: 3px;
+  margin: "auto";
+  left: 20%;
+  top: -10px;
+}
+
+.section4 {
+  padding-bottom: 10px;
+}
+
+.section4 h1 {
+  color: #605f5f;
+  margin-bottom: 267px;
+}
+
+.download-view {
+  background-color: #fff;
+  border-radius: 18px;
+  padding: 30px 30px 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.download-image {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 240px;
+  justify-content: space-evenly;
+}
+
+/* .download-image img {
+  margin-right: 30px;
+} */
+.download-text {
+  max-width: 500px;
+  margin-left: auto;
+  font-size: 20px;
+  color: #605f5f;
+  margin-bottom: 26px;
+  line-height: 23px;
+}
+
+.absolute-position {
+  position: absolute;
+  left: 2%;
+}
+
+@media screen and (max-width: 1024px) {
+  .absolute-position {
+    width: 300px;
+  }
+  .download-text {
+    font-size: 16px;
+    max-width: 400px;
+    border: 1px solid red;
+  }
+  .section4 h1 {
+    margin-bottom: 107px;
+  }
+  .header-text {
+    font-size: 44px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-text {
+    font-size: 34px;
+  }
+  /* .box-layout {
+    max-width: 250px;
+    min-width: 250px;
+  } */
+  /* .box-layout > img {
+    max-width: 250px;
+  } */
+  .section1-container {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .section2 .flex-start {
+    justify-content: center;
+  }
+  .flex-nowrap {
+    background-color: #fff;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    padding: 15px;
+    min-width: 155px;
+    justify-content: center;
+  }
+  .absolute-position {
+    position: relative;
+    max-width: 200px;
+  }
+  .download-image img {
+    max-width: 84px;
+  }
+  .download-text {
+    margin: auto;
+  }
+  .section4 h1 {
+    margin-bottom: 47px;
+  }
+  .section2 span {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 439px) {
+  .svg-banner {
+    width: 280px;
+    margin: auto;
+  }
+  .hidden {
+    display: none;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .header-text {
+    font-size: 28px;
+  }
+  .download-text > p {
+    display: none;
+  }
+  .box-layout {
+    min-width: 200px;
+  }
 }
