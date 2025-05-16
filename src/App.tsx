@@ -2,16 +2,17 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
+import { WorkspaceProvider } from "context/workspaceContext";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <WorkspaceProvider>
       <Navbar />
-      <div className="app-container">
+      <main className="app-container">
         <Dashboard />
-      </div>
+      </main>
       <Footer />
-    </div>
+    </WorkspaceProvider>
   );
 };
 
