@@ -297,8 +297,9 @@ h1 {
 
 @media screen and (max-width: 439px) {
   .svg-banner {
-    width: 280px;
-    margin: auto;
+    max-width: 380px;
+    width: 380px;
+    overflow-x: hidden;
   }
   .hidden {
     display: none;
@@ -322,5 +323,10 @@ h1 {
     min-width: none;
     padding: 15px 0px;
     margin-left: 10px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .svg-banner {
+    width: 350px;
   }
 }
