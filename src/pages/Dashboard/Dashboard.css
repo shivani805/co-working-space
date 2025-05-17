@@ -254,7 +254,7 @@ h1 {
     font-size: 34px;
     text-align: center;
     margin: 0;
-    padding-top: 1px0;
+    padding-top: 10px;
   }
   .desktop-hidden {
     visibility: visible;
@@ -267,6 +267,8 @@ h1 {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
+    margin: 0;
     margin-left: -15px;
   }
   .section2 .flex-start {
@@ -344,6 +346,7 @@ h1 {
 }
 @media screen and (max-width: 375px) {
   .svg-banner {
-    width: 333px;
+    /* width: 300px; */
+    max-width: 350px;
   }
 }
