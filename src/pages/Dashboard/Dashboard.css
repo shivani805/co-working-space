@@ -252,6 +252,9 @@ h1 {
 @media screen and (max-width: 768px) {
   .header-text {
     font-size: 34px;
+    text-align: center;
+    margin: 0;
+    padding-top: 1px0;
   }
   .desktop-hidden {
     visibility: visible;
@@ -264,7 +267,7 @@ h1 {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin-left: -15px;
   }
   .section2 .flex-start {
     justify-content: center;
@@ -342,9 +345,5 @@ h1 {
 @media screen and (max-width: 375px) {
   .svg-banner {
     width: 333px;
-  }
-  .break-text::before {
-    content: "\A";
-    white-space: pre-line;
   }
 }
