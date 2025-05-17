@@ -243,6 +243,12 @@ h1 {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .svg-banner {
+    width: 388px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header-text {
     font-size: 34px;
@@ -301,8 +307,8 @@ h1 {
 
 @media screen and (max-width: 439px) {
   .svg-banner {
-    max-width: 366px;
-    width: 366px;
+    /* max-width: 366px; */
+    /* width: 366px; */
     overflow-x: hidden;
   }
   .hidden {
@@ -331,6 +337,6 @@ h1 {
 }
 @media screen and (max-width: 375px) {
   .svg-banner {
-    width: 350px;
+    /* width: 350px; */
   }
 }
