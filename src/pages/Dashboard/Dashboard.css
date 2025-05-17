@@ -301,8 +301,8 @@ h1 {
 
 @media screen and (max-width: 439px) {
   .svg-banner {
-    max-width: 380px;
-    width: 380px;
+    max-width: 366px;
+    width: 366px;
     overflow-x: hidden;
   }
   .hidden {
