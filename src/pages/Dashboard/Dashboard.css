@@ -330,13 +330,16 @@ h1 {
     gap: 24px;
   }
   .flex-nowrap {
-    min-width: none;
+    /* min-width: none; */
     padding: 15px 0px;
     margin-left: 10px;
+    /* width: 20px !important; */
+    min-width: 148px;
+    flex: 1;
   }
 }
 @media screen and (max-width: 375px) {
   .svg-banner {
-    width: 290px;
+    width: 333px;
   }
 }
