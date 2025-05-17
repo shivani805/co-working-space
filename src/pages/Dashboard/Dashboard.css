@@ -30,7 +30,7 @@
   padding: 20px 0;
 }
 
-.header-text span:last-child {
+.header-text span > span:nth-child(1) {
   color: var(--dark-yellow);
   font-weight: 800;
 }
@@ -311,6 +311,7 @@ h1 {
     /* width: 366px; */
     /* overflow-x: hidden; */
   }
+
   .hidden {
     display: none;
   }
@@ -341,5 +342,9 @@ h1 {
 @media screen and (max-width: 375px) {
   .svg-banner {
     width: 333px;
+  }
+  .break-text::before {
+    content: "\A";
+    white-space: pre-line;
   }
 }
