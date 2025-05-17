@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
             <span className="price"> ₹199/-!</span>
           </h1>
           <div>
-            <SVGBanner className="svg-banner" width={"auto"} />
+            <SVGBanner className="svg-banner" />
           </div>
         </div>
       </div>

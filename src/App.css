@@ -17,4 +17,5 @@
 
 .app-container {
   background-color: var(--secondary-color);
+  overflow-x: hidden;
 }
