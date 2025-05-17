@@ -271,6 +271,9 @@ h1 {
     margin: 0;
     margin-left: -15px;
   }
+  .section2 {
+    margin-bottom: 0;
+  }
   .section2 .flex-start {
     justify-content: center;
   }
